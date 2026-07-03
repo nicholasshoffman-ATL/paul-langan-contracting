@@ -8,18 +8,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css?v=6" />
+  <link rel="stylesheet" href="assets/css/style.css?v=7" />
 </head>
 <body data-page="home">
   <div id="site-header"></div>
 
   <!-- Hero -->
   <section class="hero">
-    <video class="hero__video" autoplay muted loop playsinline preload="auto"
-           poster="assets/img/hero-poster.jpg" aria-hidden="true">
-      <source src="assets/video/hero.webm" type="video/webm" />
-      <source src="assets/video/hero.mp4" type="video/mp4" />
-    </video>
+    <div class="hero__slideshow" aria-hidden="true">
+      <div class="hero__slide" style="background-image:url('assets/img/hero-1.webp')"></div>
+      <div class="hero__slide" style="background-image:url('assets/img/hero-2.webp')"></div>
+      <div class="hero__slide" style="background-image:url('assets/img/hero-3.webp')"></div>
+      <div class="hero__slide" style="background-image:url('assets/img/hero-4.webp')"></div>
+      <div class="hero__slide" style="background-image:url('assets/img/hero-5.webp')"></div>
+    </div>
     <div class="hero__overlay" aria-hidden="true"></div>
     <div class="wrap">
       <div class="hero__inner reveal">
@@ -191,7 +193,7 @@
   </section>
 
   <div id="site-footer"></div>
-  <script src="assets/js/main.js?v=6"></script>
+  <script src="assets/js/main.js?v=7"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const grid = document.getElementById("serviceGrid");

@@ -8,14 +8,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css?v=4" />
+  <link rel="stylesheet" href="assets/css/style.css?v=5" />
 </head>
 <body data-page="projects">
   <div id="site-header"></div>
 
   <section class="page-banner">
     <div class="wrap">
-      <div class="breadcrumb"><a href="index.html">Home</a> / Projects</div>
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span aria-current="page">Projects</span>
+      </nav>
       <h1>Our Work</h1>
       <p>A sampling of kitchens, baths, and remodels we've completed for homeowners across Hilton Head Island and Bluffton.</p>
     </div>
@@ -51,7 +54,7 @@
   </section>
 
   <div id="site-footer"></div>
-  <script src="assets/js/main.js?v=4"></script>
+  <script src="assets/js/main.js?v=5"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const items = [

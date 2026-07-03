@@ -10,9 +10,21 @@ services:
       - path: /*
         name: X-Frame-Options
         value: SAMEORIGIN
-      - path: /assets/*
+      # JS/CSS have stable, unversioned filenames — must revalidate so code
+      # updates reach returning visitors instead of being cached forever.
+      - path: /assets/js/*
         name: Cache-Control
-        value: public, max-age=31536000, immutable
+        value: public, max-age=0, must-revalidate
+      - path: /assets/css/*
+        name: Cache-Control
+        value: public, max-age=0, must-revalidate
+      # Images, video, and fonts can be cached long — swap the filename to update.
+      - path: /assets/img/*
+        name: Cache-Control
+        value: public, max-age=604800
+      - path: /assets/video/*
+        name: Cache-Control
+        value: public, max-age=604800
     routes:
       # Pretty URLs -> .html files
       - type: rewrite

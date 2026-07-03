@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Paul Langan Contracting &amp; Painting — Hilton Head &amp; Bluffton, SC</title>
+  <meta name="description" content="Browse a sample of renovation, remodeling, painting, and carpentry projects completed by Paul Langan Contracting across Hilton Head Island and Bluffton, SC." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="projects">
+  <div id="site-header"></div>
+
+  <section class="page-banner">
+    <div class="wrap">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Projects</div>
+      <h1>Our Work</h1>
+      <p>A look at the kind of craftsmanship we bring to Lowcountry homes and businesses. Replace these placeholders with your own project photos.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="center" style="margin-bottom:44px;">
+        <span class="eyebrow reveal">Recent projects</span>
+        <h2 class="reveal">Built with Care, Finished with Pride</h2>
+      </div>
+      <div class="gallery" id="gallery"></div>
+      <p class="center" style="margin-top:28px; font-size:0.9rem; color:var(--slate);">
+        Tip: drop your project photos into <code>/assets/img/</code> and swap the placeholders in <code>projects.html</code>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--navy">
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat reveal"><strong>35+</strong><span>Years of projects</span></div>
+        <div class="stat reveal"><strong>500+</strong><span>Homes &amp; businesses served</span></div>
+        <div class="stat reveal"><strong>9</strong><span>Trades in-house</span></div>
+        <div class="stat reveal"><strong>100%</strong><span>Licensed &amp; insured</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-band">
+    <div class="wrap center">
+      <h2 class="reveal">Picture Your Project Here</h2>
+      <p class="reveal">Let's talk about what you have in mind — estimates are always free.</p>
+      <a class="btn btn--dark btn--lg reveal" href="contact.html">Start Your Project</a>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const items = [
+        "Kitchen Remodel — Hilton Head", "Master Bath Renovation — Bluffton",
+        "Whole-Home Repaint — Sea Pines", "Custom Cabinetry — Palmetto Bluff",
+        "Home Addition — Hilton Head", "Deck & Carpentry — Bluffton",
+        "Roof Replacement — Hilton Head", "Concrete Patio — Bluffton",
+        "Commercial Build-Out — Hilton Head",
+      ];
+      const g = document.getElementById("gallery");
+      if (g) g.innerHTML = items.map(t =>
+        `<div class="gallery__item reveal"><span>${t}</span></div>`).join("");
+      initReveal();
+    });
+  </script>
+</body>
+</html>

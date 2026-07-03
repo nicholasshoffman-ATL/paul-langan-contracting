@@ -46,13 +46,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const grid = document.getElementById("serviceGrid");
-      if (grid) grid.innerHTML = SERVICES.map(s => `
-        <a class="card service-card reveal" href="services/${s.slug}.html">
-          <div class="card__icon">${s.icon}</div>
-          <h3>${s.title}</h3>
-          <p>${s.blurb}</p>
-          <span class="card__link">Learn more →</span>
-        </a>`).join("");
+      if (grid) grid.innerHTML = serviceCardsHTML();
       initReveal();
     });
   </script>

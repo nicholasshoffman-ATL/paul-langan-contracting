@@ -4,5 +4,10 @@ Thumbs.db
 desktop.ini
 *.log
 
-# Dependencies (none required, but just in case)
+# Dependencies (sharp is only needed to run optimize-images.js locally)
 node_modules/
+package-lock.json
+
+# Full-res original photos downloaded from the live site — kept locally only.
+# The optimized, web-sized versions in assets/img/ ARE committed.
+assets/img/original/

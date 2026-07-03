@@ -16,16 +16,31 @@ const SITE = {
 };
 
 const SERVICES = [
-  { slug: "renovations",  title: "Renovations & Remodeling", icon: "🏠", blurb: "Kitchens, baths, and whole-home transformations managed start to finish." },
-  { slug: "additions",    title: "Additions",                icon: "📐", blurb: "Add square footage that blends seamlessly with your existing home." },
-  { slug: "painting",     title: "Interior & Exterior Painting", icon: "🎨", blurb: "Clean lines, durable finishes, and flawless prep on every surface." },
-  { slug: "cabinets",     title: "Custom Cabinets",          icon: "🗄️", blurb: "Brooklyn & Shaker Premier Series cabinetry built for your space." },
-  { slug: "carpentry",    title: "Carpentry",                icon: "🪚", blurb: "Trim, framing, built-ins, and finish carpentry done right." },
-  { slug: "concrete",     title: "Concrete Work",            icon: "🧱", blurb: "Driveways, patios, foundations, and structural concrete." },
-  { slug: "roofing",      title: "Roofing",                  icon: "🏗️", blurb: "New roofs, repairs, and weatherproofing for Lowcountry conditions." },
-  { slug: "disinfecting", title: "Disinfecting Service",     icon: "🧴", blurb: "Professional disinfecting for homes and commercial spaces." },
-  { slug: "commercial",   title: "Commercial Services",      icon: "🏢", blurb: "Build-outs, renovations, and maintenance for commercial property." },
+  { slug: "renovations",  title: "Renovations & Remodeling", img: "svc-renovations.webp", blurb: "Kitchens, baths, and whole-home remodels managed from first sketch to final walkthrough." },
+  { slug: "additions",    title: "Additions",                img: "svc-additions.webp",   blurb: "Room and second-story additions that blend right in with your existing home." },
+  { slug: "painting",     title: "Interior & Exterior Painting", img: "svc-painting.webp", blurb: "Careful prep and durable finishes built to hold up to Lowcountry sun and salt air." },
+  { slug: "cabinets",     title: "Custom Cabinets",          img: "svc-cabinets.webp",    blurb: "Brooklyn and Shaker Premier Series cabinetry, measured and installed for your space." },
+  { slug: "carpentry",    title: "Carpentry",                img: "svc-carpentry.webp",   blurb: "Trim, built-ins, doors, decks, and wood-rot repair handled by skilled carpenters." },
+  { slug: "concrete",     title: "Concrete Work",            img: "svc-concrete.webp",    blurb: "Driveways, patios, walkways, and foundations formed and finished to last." },
+  { slug: "roofing",      title: "Roofing",                  img: "svc-roofing.webp",     blurb: "New roofs, repairs, and weatherproofing for the Lowcountry's storms and heat." },
+  { slug: "disinfecting", title: "Disinfecting Service",     img: "svc-disinfecting.webp",blurb: "Professional disinfecting for homes, offices, and shared commercial spaces." },
+  { slug: "commercial",   title: "Commercial Services",      img: "svc-commercial.webp",  blurb: "Build-outs, renovations, and maintenance for Lowcountry commercial property." },
 ];
+
+/* Renders the photo service cards used on the home + services pages. */
+function serviceCardsHTML() {
+  return SERVICES.map(s => `
+    <a class="service-card" href="${DEPTH}services/${s.slug}.html">
+      <span class="service-card__media">
+        <img src="${DEPTH}assets/img/${s.img}" alt="${s.title}" loading="lazy" />
+      </span>
+      <span class="service-card__body">
+        <h3>${s.title}</h3>
+        <p>${s.blurb}</p>
+        <span class="card__link">Learn more &rarr;</span>
+      </span>
+    </a>`).join("");
+}
 
 /* Resolve relative paths whether we're at root or inside /services/ */
 const DEPTH = location.pathname.replace(/\/+$/, "/").includes("/services/") ? "../" : "";
@@ -38,24 +53,22 @@ function buildHeader() {
   <div class="topbar">
     <div class="wrap">
       <div class="topbar__meta">
-        <span>📍 Serving ${SITE.area}</span>
-        <a href="${SITE.phoneHref}">📞 ${SITE.phone}</a>
-        <a href="mailto:${SITE.email}">✉️ ${SITE.email}</a>
+        <span>Serving ${SITE.area}</span>
+        <span class="topbar__sep">&middot;</span>
+        <a href="${SITE.phoneHref}">${SITE.phone}</a>
+        <span class="topbar__sep">&middot;</span>
+        <a href="mailto:${SITE.email}">${SITE.email}</a>
       </div>
       <div class="topbar__social">
-        <a href="${SITE.facebook}" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
-        <a href="${SITE.instagram}" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+        <a href="${SITE.facebook}" target="_blank" rel="noopener">Facebook</a>
+        <a href="${SITE.instagram}" target="_blank" rel="noopener">Instagram</a>
       </div>
     </div>
   </div>
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="${url('index.html')}">
-        <img class="brand__mark" src="${url('assets/img/favicon.svg')}" alt="" width="42" height="42" />
-        <span class="brand__text">
-          <strong>Paul Langan</strong>
-          <span>Contracting &amp; Painting</span>
-        </span>
+      <a class="brand" href="${url('index.html')}" aria-label="Paul Langan Contracting & Painting — home">
+        <img class="brand__logo" src="${url('assets/img/logo.png')}" srcset="${url('assets/img/logo.png')} 1x, ${url('assets/img/logo@2x.png')} 2x" alt="Paul Langan Contracting & Painting" width="150" height="90" />
       </a>
       <nav class="nav" id="nav">
         <a href="${url('index.html')}" data-nav="home">Home</a>
@@ -182,8 +195,8 @@ function injectFavicon() {
   if (document.querySelector('link[rel="icon"]')) return;
   const link = document.createElement("link");
   link.rel = "icon";
-  link.type = "image/svg+xml";
-  link.href = url("assets/img/favicon.svg");
+  link.type = "image/png";
+  link.href = url("assets/img/favicon.png");
   document.head.appendChild(link);
 }
 

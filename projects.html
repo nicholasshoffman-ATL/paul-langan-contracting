@@ -17,7 +17,7 @@
     <div class="wrap">
       <div class="breadcrumb"><a href="index.html">Home</a> / Projects</div>
       <h1>Our Work</h1>
-      <p>A look at the kind of craftsmanship we bring to Lowcountry homes and businesses. Replace these placeholders with your own project photos.</p>
+      <p>A sampling of kitchens, baths, and remodels we've completed for homeowners across Hilton Head Island and Bluffton.</p>
     </div>
   </section>
 
@@ -28,9 +28,6 @@
         <h2 class="reveal">Built with Care, Finished with Pride</h2>
       </div>
       <div class="gallery" id="gallery"></div>
-      <p class="center" style="margin-top:28px; font-size:0.9rem; color:var(--slate);">
-        Tip: drop your project photos into <code>/assets/img/</code> and swap the placeholders in <code>projects.html</code>.
-      </p>
     </div>
   </section>
 
@@ -58,15 +55,19 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const items = [
-        "Kitchen Remodel — Hilton Head", "Master Bath Renovation — Bluffton",
-        "Whole-Home Repaint — Sea Pines", "Custom Cabinetry — Palmetto Bluff",
-        "Home Addition — Hilton Head", "Deck & Carpentry — Bluffton",
-        "Roof Replacement — Hilton Head", "Concrete Patio — Bluffton",
-        "Commercial Build-Out — Hilton Head",
+        { img: "proj-kitchen-1.webp",      t: "Kitchen Remodel" },
+        { img: "proj-bath-1.webp",         t: "Sea Pines Bathroom" },
+        { img: "proj-kitchen-island.webp", t: "Custom Kitchen Island" },
+        { img: "proj-cabinets.webp",       t: "New Cabinetry" },
+        { img: "proj-living.webp",         t: "Living Room Remodel" },
+        { img: "proj-bath-2.webp",         t: "Brooklyn Series Bath" },
+        { img: "proj-kitchen-2.webp",      t: "White Cabinet Kitchen" },
+        { img: "proj-carpentry.webp",      t: "Finish Carpentry" },
+        { img: "proj-concrete.webp",       t: "Concrete Work" },
       ];
       const g = document.getElementById("gallery");
-      if (g) g.innerHTML = items.map(t =>
-        `<div class="gallery__item reveal"><span>${t}</span></div>`).join("");
+      if (g) g.innerHTML = items.map(i =>
+        `<div class="gallery__item reveal"><img src="assets/img/${i.img}" alt="${i.t}" loading="lazy" /><span>${i.t}</span></div>`).join("");
       initReveal();
     });
   </script>

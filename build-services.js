@@ -201,7 +201,9 @@ const pageTemplate = (s, prev, next) => `<!DOCTYPE html>
         <p>${s.intro}</p>
         <a class="btn btn--primary" href="../contact.html" style="margin-top:22px;">Request a Free Estimate</a>
       </div>
-      <div class="split__media reveal"><span>${s.title}</span></div>
+      <div class="split__media reveal">
+        <img src="../assets/img/svc-${s.slug}.webp" alt="${s.title} by Paul Langan Contracting in Hilton Head &amp; Bluffton" loading="lazy" />
+      </div>
     </div>
   </section>
 

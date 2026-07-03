@@ -1,0 +1,24 @@
+{
+  "name": "paul-langan-contracting",
+  "version": "1.0.0",
+  "description": "A fast, responsive, static marketing site for Paul Langan Contracting & Painting, Inc. (Hilton Head Island & Bluffton, SC). Rebuilt as a clean, modern static site with no framework and no build step required to run.",
+  "main": "build-services.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicholasshoffman-ATL/paul-langan-contracting.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/nicholasshoffman-ATL/paul-langan-contracting/issues"
+  },
+  "homepage": "https://github.com/nicholasshoffman-ATL/paul-langan-contracting#readme",
+  "dependencies": {
+    "sharp": "^0.35.3"
+  }
+}

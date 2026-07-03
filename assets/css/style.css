@@ -118,9 +118,11 @@ p { color: var(--slate); }
   border-bottom: 1px solid var(--line);
 }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 14px; }
-.brand { display: flex; flex-direction: column; line-height: 1.05; }
+.brand { display: flex; align-items: center; gap: 11px; line-height: 1.05; }
+.brand__mark { flex: none; border-radius: 10px; }
+.brand__text { display: flex; flex-direction: column; }
 .brand strong { font-family: var(--font-head); font-size: 1.22rem; color: var(--navy); font-weight: 700; }
-.brand span { font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber-dark); font-weight: 600; }
+.brand__text > span { font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber-dark); font-weight: 600; }
 
 .nav { display: flex; align-items: center; gap: 4px; }
 .nav a {

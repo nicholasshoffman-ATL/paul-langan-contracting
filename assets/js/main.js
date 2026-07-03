@@ -51,8 +51,11 @@ function buildHeader() {
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="${url('index.html')}">
-        <strong>Paul Langan</strong>
-        <span>Contracting &amp; Painting</span>
+        <img class="brand__mark" src="${url('assets/img/favicon.svg')}" alt="" width="42" height="42" />
+        <span class="brand__text">
+          <strong>Paul Langan</strong>
+          <span>Contracting &amp; Painting</span>
+        </span>
       </a>
       <nav class="nav" id="nav">
         <a href="${url('index.html')}" data-nav="home">Home</a>
@@ -175,7 +178,17 @@ function initForm() {
   });
 }
 
+function injectFavicon() {
+  if (document.querySelector('link[rel="icon"]')) return;
+  const link = document.createElement("link");
+  link.rel = "icon";
+  link.type = "image/svg+xml";
+  link.href = url("assets/img/favicon.svg");
+  document.head.appendChild(link);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  injectFavicon();
   const h = document.getElementById("site-header");
   const f = document.getElementById("site-footer");
   if (h) h.innerHTML = buildHeader();

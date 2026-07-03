@@ -192,7 +192,11 @@ p { color: var(--slate); }
 }
 .hero__overlay {
   position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(105deg, rgba(18,35,59,0.94) 0%, rgba(18,35,59,0.82) 42%, rgba(18,35,59,0.55) 100%);
+  /* Keep the photos vivid: only shade the left where the text sits, plus a
+     light grounding wash — the right side stays fully visible. */
+  background:
+    linear-gradient(95deg, rgba(15,28,48,0.82) 0%, rgba(15,28,48,0.40) 34%, rgba(15,28,48,0) 62%),
+    linear-gradient(0deg, rgba(15,28,48,0.30) 0%, rgba(15,28,48,0) 45%);
 }
 /* Respect reduced-motion: freeze on the first slide */
 @media (prefers-reduced-motion: reduce) {
@@ -200,8 +204,9 @@ p { color: var(--slate); }
   .hero__slide:nth-child(1) { opacity: 1; }
 }
 .hero__inner { max-width: 720px; position: relative; z-index: 2; }
-.hero h1 { color: var(--white); }
-.hero p { color: #d3dcea; font-size: 1.18rem; margin: 20px 0 32px; max-width: 56ch; }
+.hero .eyebrow { text-shadow: 0 1px 12px rgba(0,0,0,0.45); }
+.hero h1 { color: var(--white); text-shadow: 0 2px 22px rgba(0,0,0,0.55), 0 1px 3px rgba(0,0,0,0.4); }
+.hero p { color: #eaf0f8; font-size: 1.18rem; margin: 20px 0 32px; max-width: 56ch; text-shadow: 0 1px 14px rgba(0,0,0,0.5); }
 .hero__actions { display: flex; gap: 14px; flex-wrap: wrap; }
 .hero__badges { display: flex; gap: 26px; margin-top: 46px; flex-wrap: wrap; }
 .hero__badge strong { display: block; font-family: var(--font-head); font-size: 2rem; color: var(--amber); }

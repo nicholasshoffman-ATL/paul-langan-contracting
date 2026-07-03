@@ -180,7 +180,7 @@ const pageTemplate = (s, prev, next) => `<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/css/style.css?v=7" />
+  <link rel="stylesheet" href="../assets/css/style.css?v=8" />
 </head>
 <body data-page="services">
   <div id="site-header"></div>
@@ -246,7 +246,7 @@ const pageTemplate = (s, prev, next) => `<!DOCTYPE html>
   </section>
 
   <div id="site-footer"></div>
-  <script src="../assets/js/main.js?v=7"></script>
+  <script src="../assets/js/main.js?v=8"></script>
 </body>
 </html>
 `;

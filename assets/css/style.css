@@ -192,11 +192,16 @@ p { color: var(--slate); }
 }
 .hero__overlay {
   position: absolute; inset: 0; z-index: 1;
-  /* Keep the photos vivid: only shade the left where the text sits, plus a
-     light grounding wash — the right side stays fully visible. */
+  /* Shade the left text column strongly for legibility, then fade to clear
+     so the right of the photo still shows. Plus a soft bottom grounding wash. */
   background:
-    linear-gradient(95deg, rgba(15,28,48,0.82) 0%, rgba(15,28,48,0.40) 34%, rgba(15,28,48,0) 62%),
-    linear-gradient(0deg, rgba(15,28,48,0.30) 0%, rgba(15,28,48,0) 45%);
+    linear-gradient(100deg,
+      rgba(10,19,33,0.92) 0%,
+      rgba(10,19,33,0.80) 26%,
+      rgba(10,19,33,0.52) 46%,
+      rgba(10,19,33,0.18) 66%,
+      rgba(10,19,33,0) 82%),
+    linear-gradient(0deg, rgba(10,19,33,0.42) 0%, rgba(10,19,33,0) 42%);
 }
 /* Respect reduced-motion: freeze on the first slide */
 @media (prefers-reduced-motion: reduce) {
@@ -204,13 +209,13 @@ p { color: var(--slate); }
   .hero__slide:nth-child(1) { opacity: 1; }
 }
 .hero__inner { max-width: 720px; position: relative; z-index: 2; }
-.hero .eyebrow { text-shadow: 0 1px 12px rgba(0,0,0,0.45); }
-.hero h1 { color: var(--white); text-shadow: 0 2px 22px rgba(0,0,0,0.55), 0 1px 3px rgba(0,0,0,0.4); }
-.hero p { color: #eaf0f8; font-size: 1.18rem; margin: 20px 0 32px; max-width: 56ch; text-shadow: 0 1px 14px rgba(0,0,0,0.5); }
+.hero .eyebrow { color: #f6b45a; text-shadow: 0 1px 3px rgba(0,0,0,0.7), 0 2px 16px rgba(0,0,0,0.6); }
+.hero h1 { color: var(--white); text-shadow: 0 1px 2px rgba(0,0,0,0.5), 0 2px 30px rgba(0,0,0,0.65); }
+.hero p { color: #eef2f8; font-size: 1.18rem; margin: 20px 0 32px; max-width: 56ch; text-shadow: 0 1px 3px rgba(0,0,0,0.6), 0 1px 18px rgba(0,0,0,0.55); }
 .hero__actions { display: flex; gap: 14px; flex-wrap: wrap; }
 .hero__badges { display: flex; gap: 26px; margin-top: 46px; flex-wrap: wrap; }
-.hero__badge strong { display: block; font-family: var(--font-head); font-size: 2rem; color: var(--amber); }
-.hero__badge span { font-size: 0.85rem; color: #b9c5d6; }
+.hero__badge strong { display: block; font-family: var(--font-head); font-size: 2rem; color: var(--amber); text-shadow: 0 1px 3px rgba(0,0,0,0.6); }
+.hero__badge span { font-size: 0.85rem; color: #dbe3ee; text-shadow: 0 1px 4px rgba(0,0,0,0.7); }
 
 /* Page banner (inner pages) */
 .page-banner {

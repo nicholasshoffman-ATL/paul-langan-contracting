@@ -200,6 +200,31 @@ function injectFavicon() {
   document.head.appendChild(link);
 }
 
+/* Force the hero background video to play — the autoplay attribute alone
+   isn't reliably honored (mobile Safari, data-saver, some Chrome states). */
+function initHeroVideo() {
+  const v = document.querySelector(".hero__video");
+  if (!v) return;
+  v.muted = true;          // must be a property, not just an attribute, for autoplay
+  v.defaultMuted = true;
+  v.setAttribute("muted", "");
+  v.playsInline = true;
+
+  const tryPlay = () => {
+    const p = v.play();
+    if (p && typeof p.catch === "function") p.catch(() => {});
+  };
+
+  tryPlay();
+  // Retry once the video is ready, and on the first user interaction / tab focus.
+  v.addEventListener("loadeddata", tryPlay, { once: true });
+  v.addEventListener("canplay", tryPlay, { once: true });
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) tryPlay(); });
+  ["pointerdown", "touchstart", "scroll", "keydown"].forEach(ev =>
+    window.addEventListener(ev, tryPlay, { once: true, passive: true })
+  );
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   injectFavicon();
   const h = document.getElementById("site-header");
@@ -209,4 +234,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initNav();
   initReveal();
   initForm();
+  initHeroVideo();
 });

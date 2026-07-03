@@ -9,6 +9,9 @@ framework and no build step required to run.
 - Shared header/footer injected by `assets/js/main.js` (single source of truth in `SITE` + `SERVICES`)
 - Google Fonts (Inter + Poppins), CSS custom-property design system
 - Mobile nav, scroll reveal animations, and a client-side contact form
+- Hero background video (`assets/video/hero.mp4` + `.webm`) — a muted, looping
+  Ken Burns clip rendered from the company's own project photos via ffmpeg
+  (`build-hero-video` recipe); falls back to `hero-poster.jpg` for reduced-motion
 
 ## Pages / Tabs
 | Tab | File |
